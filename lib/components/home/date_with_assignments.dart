@@ -12,14 +12,20 @@ class DateWithAssignment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(14),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(date),
-          ListView.builder(
+          Text(
+            date,
+            style: const TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          GridView.builder(
             primary: false,
             shrinkWrap: true,
             itemCount: assignments.length,
@@ -28,6 +34,11 @@ class DateWithAssignment extends StatelessWidget {
                 assignment: assignments[i],
               );
             },
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 500,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+            ),
           ),
         ],
       ),
