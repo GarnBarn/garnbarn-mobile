@@ -16,7 +16,6 @@ class DateWithAssignment extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             date,
@@ -37,8 +36,8 @@ class DateWithAssignment extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 500,
               crossAxisSpacing: 10,
-              mainAxisExtent: 200,
               mainAxisSpacing: 10,
+              mainAxisExtent: 250,
             ),
           ),
         ],

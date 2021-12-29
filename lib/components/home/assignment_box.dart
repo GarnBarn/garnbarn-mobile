@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:garnbarn_mobile/components/home/tag_box.dart';
 import 'package:garnbarn_mobile/services/garnbarn_apis/types/assignment.dart';
 
 class AssignmentBox extends StatelessWidget {
@@ -28,54 +29,64 @@ class AssignmentBox extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             children: [
               // Assignment Name
-              Expanded(
-                flex: 2,
-                child: Text(
-                  assignment.name,
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: getTextColor(
-                      assignment.getColor(),
-                    ),
+              Text(
+                assignment.name,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: 25,
+                  overflow: TextOverflow.ellipsis,
+                  fontWeight: FontWeight.w500,
+                  color: getTextColor(
+                    assignment.getColor(),
                   ),
                 ),
               ),
               // Tag Box
-              // TODO: Implement Tag Box
-              Expanded(
-                flex: 1,
-                child: Text(
-                  "ISP",
-                  style: TextStyle(
-                    color: getTextColor(
-                      assignment.getColor(),
-                    ),
-                  ),
-                ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+                child: assignment.tag != null
+                    ? TagBox(
+                        tag: assignment.tag!,
+                      )
+                    : Container(),
               ),
               // Submission Time
               Expanded(
-                flex: 2,
-                child: Row(
-                  children: <Widget>[
-                    Icon(
-                      Icons.access_time_filled,
-                      color: getTextColor(
-                        assignment.getColor(),
-                      ),
-                    ),
-                    Text(
-                      "Submisson Time: " + assignment.dueDate.toString(),
-                      style: TextStyle(
-                        color: getTextColor(
-                          assignment.getColor(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Icon(
+                          Icons.access_time_filled,
+                          color: getTextColor(
+                            assignment.getColor(),
+                          ),
                         ),
-                      ),
-                    )
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Text(
+                            assignment.dueDate == null
+                                ? "-"
+                                : "${assignment.dueDate!.hour.toString()}:${assignment.dueDate!.minute.toString()}",
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: getTextColor(
+                                assignment.getColor(),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            softWrap: false,
+                            maxLines: 1,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

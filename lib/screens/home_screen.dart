@@ -36,24 +36,49 @@ class _HomeScreenState extends State<HomeScreen> {
               parent: AlwaysScrollableScrollPhysics(),
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 DateWithAssignment(
                   date: "12 Dec 2025",
                   assignments: <Assignment>[
                     Assignment(
                       id: 123,
-                      name: "Example",
+                      name:
+                          "Example1234dafsdefdf123ddfas3erasefasdfa34rasdfasdfasdfaasdfaefaefasefasdfasdefasfcaefasd",
                       author: "1234",
                       tag: Tag(
                         id: 1,
-                        name: "Test",
+                        name:
+                            "Example1234dafsdefdf123ddfas3erasefasdfa34rasdfasdfasdfaasdfaefaefasefasdfasdefasfcaefasd",
                         author: "123",
                         color: const Color.fromRGBO(100, 0, 0, 1),
                       ),
                     ),
-                    Assignment(id: 123, name: "Example", author: "1234"),
-                    Assignment(id: 123, name: "Example", author: "1234"),
+                    Assignment(
+                      id: 123,
+                      name: "Example",
+                      author: "1234",
+                      dueDate: DateTime.now(),
+                      tag: Tag(
+                        id: 1,
+                        name:
+                            "Example1234dafsdefdf123ddfas3erasefasdfa34rasdfasdfasdfaasdfaefaefasefasdfasdefasfcaefasd",
+                        author: "123",
+                        color: const Color.fromRGBO(100, 100, 0, 1),
+                      ),
+                    ),
+                    Assignment(
+                      id: 123,
+                      name: "Example",
+                      author: "1234",
+                      tag: Tag(
+                        id: 1,
+                        name:
+                            "Example1234dafsdefdf123ddfas3erasefasdfa34rasdfasdfasdfaasdfaefaefasefasdfasdefasfcaefasd",
+                        author: "123",
+                        color: const Color.fromRGBO(247, 233, 195, 1),
+                      ),
+                    ),
                     Assignment(id: 123, name: "Example", author: "1234"),
                     Assignment(id: 123, name: "Example", author: "1234"),
                     Assignment(id: 123, name: "Example", author: "1234"),
