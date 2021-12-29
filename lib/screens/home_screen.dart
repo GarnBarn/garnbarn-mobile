@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:garnbarn_mobile/components/home/date_with_assignments.dart';
 import 'package:garnbarn_mobile/services/garnbarn_apis/types/assignment.dart';
+import 'package:garnbarn_mobile/services/garnbarn_apis/types/tag.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -40,7 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 DateWithAssignment(
                   date: "12 Dec 2025",
                   assignments: <Assignment>[
-                    Assignment(id: 123, name: "Example", author: "1234"),
+                    Assignment(
+                      id: 123,
+                      name: "Example",
+                      author: "1234",
+                      tag: Tag(
+                        id: 1,
+                        name: "Test",
+                        author: "123",
+                        color: const Color.fromRGBO(100, 0, 0, 1),
+                      ),
+                    ),
                     Assignment(id: 123, name: "Example", author: "1234"),
                     Assignment(id: 123, name: "Example", author: "1234"),
                     Assignment(id: 123, name: "Example", author: "1234"),
