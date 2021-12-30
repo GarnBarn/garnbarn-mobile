@@ -40,4 +40,12 @@ class Assignment {
       _$AssignmentFromJson(json);
 
   Map<String, dynamic> toJson() => _$AssignmentToJson(this);
+
+  @override
+  bool operator ==(Object other) {
+    return other is Assignment && hashCode == other.hashCode;
+  }
+
+  @override
+  int get hashCode => id + author.hashCode;
 }
