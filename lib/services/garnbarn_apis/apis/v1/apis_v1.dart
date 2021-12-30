@@ -11,8 +11,11 @@ const apiPrefix = "https://garnbarn-api.sirateek.dev";
 
 class ApisV1 {
   final User _firebaseUser;
+  late http.Client _httpClient;
 
-  const ApisV1(this._firebaseUser);
+  ApisV1(this._firebaseUser, {http.Client? httpClient}) {
+    _httpClient = httpClient ?? http.Client();
+  }
 
   Future<ApiV1Response> sendRequest(ApiMethods method, String apiPath,
       {Map<String, String>? headers, Map<String, String>? body}) async {
@@ -30,17 +33,20 @@ class ApisV1 {
     http.Response response;
     switch (method) {
       case ApiMethods.GET:
-        response = await http.get(url, headers: headers);
+        response = await _httpClient.get(url, headers: headers);
         break;
       case ApiMethods.POST:
-        response = await http.post(url, headers: headers, body: parsedBody);
+        response =
+            await _httpClient.post(url, headers: headers, body: parsedBody);
         break;
       case ApiMethods.PATCH:
-        response = await http.patch(url, headers: headers, body: parsedBody);
+        response =
+            await _httpClient.patch(url, headers: headers, body: parsedBody);
         break;
       default:
         throw Exception("Unsupported ApiMethods");
     }
+    _httpClient.close();
     return ApiV1Response(response.statusCode, response.body);
   }
 }
@@ -51,7 +57,7 @@ class ApiV1Response {
 
   ApiV1Response(this.statusCode, this.body);
 
-  Map<String, String> getMapBody() {
+  getMapBody() {
     return jsonDecode(body);
   }
 
