@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:garnbarn_mobile/services/garnbarn_apis/apis/v1/types/tag.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'assignment.g.dart';
 
 /// Constructure of the Assignment Object
+@JsonSerializable()
 class Assignment {
   final int id;
   final String name;
@@ -27,4 +31,9 @@ class Assignment {
     }
     return tag!.color as Color;
   }
+
+  factory Assignment.fromJson(Map<String, dynamic> json) =>
+      _$AssignmentFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AssignmentToJson(this);
 }
