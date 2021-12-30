@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:garnbarn_mobile/services/garnbarn_apis/types/tag.dart';
+import 'package:garnbarn_mobile/services/garnbarn_apis/apis/v1/types/tag.dart';
 
 /// Constructure of the Assignment Object
 class Assignment {

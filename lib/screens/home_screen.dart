@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:garnbarn_mobile/components/home/date_with_assignments.dart';
-import 'package:garnbarn_mobile/services/garnbarn_apis/types/assignment.dart';
-import 'package:garnbarn_mobile/services/garnbarn_apis/types/tag.dart';
+import 'package:garnbarn_mobile/services/garnbarn_apis/apis/v1/types/assignment.dart';
+import 'package:garnbarn_mobile/services/garnbarn_apis/apis/v1/types/tag.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
