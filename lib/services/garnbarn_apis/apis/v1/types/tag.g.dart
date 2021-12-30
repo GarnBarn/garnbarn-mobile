@@ -10,7 +10,7 @@ Tag _$TagFromJson(Map<String, dynamic> json) => Tag(
       id: json['id'] as int,
       name: json['name'] as String,
       author: json['author'] as String,
-      color: const ColorJsonConverter().fromJson(json['color'] as String),
+      color: const ColorJsonConverter().fromJson(json['color'] as String?),
       reminderTime: (json['reminderTime'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
