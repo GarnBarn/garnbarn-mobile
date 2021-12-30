@@ -11,7 +11,20 @@ class AssignmentApisV1 extends ApisV1 {
 
   /// Get the Assignment object with [id] from the GarnBarnApi
   Future<Assignment> get(int id) async {
-    ApiV1Response response = await sendRequest(ApiMethods.GET, _apiBaseUrl);
+    ApiV1Response response =
+        await sendRequest(ApiMethods.GET, "$_apiBaseUrl/$id/");
+    response.verifySuccess();
+    var responseMap = response.getMapBody();
+    return Assignment.fromJson(responseMap);
+  }
+
+  /// Update the Assignment Object with [id] in the GarnBarnApi
+  Future<Assignment> update(Assignment assignment) async {
+    Map<String, dynamic> assignmentJson = assignment.toJson();
+    assignmentJson.remove("id");
+    ApiV1Response response = await sendRequest(
+        ApiMethods.PATCH, "$_apiBaseUrl/${assignment.id}/",
+        body: assignmentJson);
     response.verifySuccess();
     var responseMap = response.getMapBody();
     return Assignment.fromJson(responseMap);

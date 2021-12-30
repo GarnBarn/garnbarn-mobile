@@ -18,7 +18,7 @@ class ApisV1 {
   }
 
   Future<ApiV1Response> sendRequest(ApiMethods method, String apiPath,
-      {Map<String, String>? headers, Map<String, String>? body}) async {
+      {Map<String, String>? headers, Map<String, dynamic>? body}) async {
     var url = Uri.parse(apiPrefix + apiPath);
     // Auto add the Authentication Header.
     headers ??= {};
