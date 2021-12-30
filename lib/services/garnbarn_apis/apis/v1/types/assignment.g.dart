@@ -11,9 +11,7 @@ Assignment _$AssignmentFromJson(Map<String, dynamic> json) => Assignment(
       name: json['name'] as String,
       author: json['author'] as String,
       description: json['description'] as String?,
-      dueDate: json['dueDate'] == null
-          ? null
-          : DateTime.parse(json['dueDate'] as String),
+      dueDate: const DateTimeJsonConverter().fromJson(json['dueDate'] as int?),
       reminderTime: (json['reminderTime'] as List<dynamic>?)
           ?.map((e) => e as int)
           .toList(),
@@ -27,8 +25,8 @@ Map<String, dynamic> _$AssignmentToJson(Assignment instance) =>
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
-      'dueDate': instance.dueDate?.toIso8601String(),
       'author': instance.author,
       'reminderTime': instance.reminderTime,
       'tag': instance.tag,
+      'dueDate': const DateTimeJsonConverter().toJson(instance.dueDate),
     };
