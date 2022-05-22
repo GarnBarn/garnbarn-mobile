@@ -69,5 +69,5 @@ doc/api/
 # Pubspec File
 pubspec.lock
 
-# Google Service Account
-android/app/google-services.json
+# Coverage File
+coverage/

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garnbarn_mobile/components/home/tag_box.dart';
-import 'package:garnbarn_mobile/services/garnbarn_apis/types/assignment.dart';
+import 'package:garnbarn_mobile/services/garnbarn_apis/apis/v1/types/assignment.dart';
 
 class AssignmentBox extends StatelessWidget {
   final Assignment assignment;

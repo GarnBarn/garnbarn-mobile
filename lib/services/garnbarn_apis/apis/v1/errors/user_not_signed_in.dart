@@ -1,0 +1,1 @@
+class UserNotSignedIn implements Exception {}
