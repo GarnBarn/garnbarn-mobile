@@ -46,5 +46,10 @@ void main() {
       verify(client.get(any, headers: anyNamed("headers")));
       expect(assignment, expectedAssignment);
     });
+
+    test("Test Get All Assignmetn API", () {
+      when(client.get(any, headers: anyNamed("headers"))).thenAnswer(
+          (_) async => http.Response(jsonEncode(assignmentBody), 200));
+    });
   });
 }

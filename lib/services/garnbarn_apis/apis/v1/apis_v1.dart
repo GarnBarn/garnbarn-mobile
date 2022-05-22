@@ -47,7 +47,10 @@ class ApisV1 {
         throw Exception("Unsupported ApiMethods");
     }
     _httpClient.close();
-    return ApiV1Response(response.statusCode, response.body);
+    ApiV1Response apiV1Response =
+        ApiV1Response(response.statusCode, response.body);
+    apiV1Response.verifySuccess();
+    return apiV1Response;
   }
 }
 
@@ -63,7 +66,7 @@ class ApiV1Response {
 
   bool verifySuccess() {
     if (statusCode != 200) {
-      throw ApiV1Error(getMapBody());
+      throw ApiV1Error(statusCode, getMapBody());
     }
     return true;
   }
